@@ -1,0 +1,2125 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>دعوة تخرج</title>
+
+
+    <!-- الخطوط -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Amiri:wght@400;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        /* ==========================================
+           إعدادات عامة
+        ========================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+
+        body {
+            background: #f8f5ef;
+            overflow-x: hidden;
+        }
+
+
+        /* ==========================================
+           الخلفية
+        ========================================== */
+
+        .background {
+            position: fixed;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background-image:
+                url("photo_2026-11-07_14-43-19.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-repeat: no-repeat;
+
+            z-index: -1;
+        }
+
+
+        .background::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background: rgba(255, 252, 247, 0.08);
+        }
+
+
+        /* ==========================================
+           الصفحات
+        ========================================== */
+
+        .page {
+            position: relative;
+
+            width: 100%;
+
+            min-height: 100vh;
+
+            overflow: hidden;
+        }
+
+
+        /* ==================================================
+           الصفحة الأولى
+        ================================================== */
+
+        .page-one {
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+        }
+
+
+        .content {
+            position: relative;
+
+            z-index: 2;
+
+            width: 100%;
+
+            max-width: 680px;
+
+            text-align: center;
+
+            padding: 35px 20px 45px;
+
+            margin: 0 auto;
+        }
+
+
+        /* الآية */
+
+        .ayah {
+            font-family: "Aref Ruqaa", serif;
+
+            font-size: 28px;
+
+            font-weight: 400;
+
+            color: #6f5745;
+
+            line-height: 1.9;
+
+            max-width: 650px;
+
+            margin: 0 auto;
+
+            padding: 0 10px;
+
+            text-shadow:
+                0 1px 1px rgba(255, 255, 255, 0.8);
+
+            opacity: 0;
+
+            animation:
+                ayahAppear 1.5s ease forwards;
+        }
+
+
+        .ayah-line {
+            width: 180px;
+
+            height: 1px;
+
+            margin: 7px auto 0;
+
+            background: linear-gradient(
+                to right,
+                transparent,
+                #b49a7a,
+                transparent
+            );
+
+            transform: scaleX(0);
+
+            animation:
+                lineAppear 1.1s ease forwards;
+
+            animation-delay: 1s;
+        }
+
+
+        /* دعوة الحضور */
+
+        .attendance {
+            font-family: "Aref Ruqaa", serif;
+
+            font-size: 25px;
+
+            font-weight: 400;
+
+            color: #6f5745;
+
+            line-height: 1.7;
+
+            margin-top: 65px;
+
+            margin-bottom: 47px;
+
+            opacity: 0;
+
+            animation:
+                textAppear 1.2s ease forwards;
+
+            animation-delay: 1.4s;
+        }
+
+
+        /* رسمياً */
+
+        .official {
+            font-family: "Aref Ruqaa", serif;
+
+            font-size: 31px;
+
+            color: #80654e;
+
+            line-height: 1.5;
+
+            margin-bottom: 10px;
+
+            opacity: 0;
+
+            animation:
+                textAppear 1.1s ease forwards;
+
+            animation-delay: 2s;
+        }
+
+
+        /* الاسم */
+
+        .name {
+            font-family: "Amiri", serif;
+
+            font-size: 37px;
+
+            font-weight: 700;
+
+            color: #4b385d;
+
+            line-height: 1.4;
+
+            margin-top: 0;
+
+            padding: 0 10px;
+
+            opacity: 0;
+
+            animation:
+                nameAppear 1.5s ease forwards;
+
+            animation-delay: 2.4s;
+
+            text-shadow:
+                0 1px 1px rgba(255,255,255,0.8);
+        }
+
+
+        /* الزخرفة */
+
+        .name-decoration {
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 25px;
+
+            margin-top: 13px;
+
+            opacity: 0;
+
+            animation:
+                decorationAppear 1s ease forwards;
+
+            animation-delay: 3.1s;
+        }
+
+
+        .name-decoration span {
+            display: block;
+
+            font-size: 13px;
+
+            color: #a18143;
+
+            transform: rotate(45deg);
+        }
+
+
+        /* الزر */
+
+        .click-button {
+            margin-top: 20px;
+
+            
+            opacity: 0;
+
+            animation:
+                buttonAppear 1.1s ease forwards;
+
+            animation-delay: 3.4s;
+        }
+
+
+        .click-button a {
+            display: inline-block;
+
+            font-family: "Aref Ruqaa", serif;
+
+            font-size: 19px;
+
+            color: #6f5745;
+
+            text-decoration: none;
+
+            border: 1px solid #b49a7a;
+
+            border-radius: 30px;
+
+            padding: 3px 23px 5px;
+
+            background: rgba(255, 252, 247, 0.25);
+
+            cursor: pointer;
+
+            transition: all 0.3s ease;
+        }
+
+
+        .click-button a:hover {
+            background: rgba(180, 154, 122, 0.15);
+
+            transform: translateY(-2px);
+        }
+
+
+        /* الكلام الأخير */
+
+        .bottom-message {
+            font-family: "Aref Ruqaa", serif;
+
+            font-size: 33px;
+
+            font-weight: 400;
+
+            color: #6f5745;
+
+            line-height: 1.8;
+
+            max-width: 600px;
+
+            margin: 55px auto 0;
+
+            padding: 0 15px;
+
+            opacity: 0;
+
+            animation:
+                bottomAppear 1.3s ease forwards;
+
+            animation-delay: 3.9s;
+             margin-top: 83px;
+        }
+
+
+        /* ==================================================
+           الصفحة الثانية
+        ================================================== */
+
+        .page-two {
+            min-height: 100vh;
+
+            position: relative;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            pointer-events: none;
+
+            transition: opacity 0.5s ease;
+        }
+
+
+        .page-two.show {
+            opacity: 1;
+
+            visibility: visible;
+
+            pointer-events: auto;
+        }
+
+
+        .page-two-content {
+            position: relative;
+
+            width: 100%;
+
+            min-height: 100vh;
+
+            z-index: 2;
+        }
+
+
+        /* صورة القبعة */
+
+        .cap-image {
+            position: absolute;
+
+            top: 30px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: 220px;
+
+            max-width: 35vw;
+
+            z-index: 3;
+
+            opacity: 0;
+        }
+
+
+        .cap-image img {
+            display: block;
+
+            width: 100%;
+
+            height: auto;
+
+            object-fit: contain;
+        }
+
+
+        /* نص الصفحة الثانية */
+
+        .second-page-text {
+            position: absolute;
+
+            top: 175px;
+
+            right: 50%;
+
+            transform: translateX(50%);
+
+            width: 90%;
+
+            max-width: 650px;
+
+            text-align: center;
+
+            color: #6f5745;
+
+            font-family: "Amiri", serif;
+
+            z-index: 2;
+        }
+
+
+        .praise {
+            font-family: "Amiri", serif;
+
+            font-size: 30px;
+
+            line-height: 1.9;
+
+            color: #6f5745;
+
+            margin-bottom: 32px;
+
+            opacity: 0;
+
+            animation:
+                secondTextAppear 1.2s ease forwards;
+
+            animation-delay: 0.5s;
+
+            animation-play-state: paused;
+        }
+
+
+        .graduation-text {
+            font-family: "Aref Ruqaa", serif;
+
+            font-size: 30px;
+
+            color: #6f5745;
+
+            margin-bottom: 28px;
+
+            opacity: 0;
+
+            animation:
+                secondTextAppear 1.2s ease forwards;
+
+            animation-delay: 1s;
+
+            animation-play-state: paused;
+        }
+
+
+        .graduate-name {
+            font-family: "Amiri", serif;
+
+            font-size: 58px;
+
+            font-weight: 700;
+
+            color: #4b385d;
+
+            line-height: 1.2;
+
+            margin: 0 auto 32px;
+
+            text-shadow:
+                0 1px 1px rgba(255,255,255,0.8);
+
+            opacity: 0;
+
+            animation:
+                graduateNameAppear 1.4s ease forwards;
+
+            animation-delay: 1.5s;
+
+            animation-play-state: paused;
+        }
+
+
+        .school-info {
+            font-family: "Amiri", serif;
+
+            font-size: 30px;
+
+            line-height: 2;
+
+            color: #6f5745;
+
+            margin-bottom: 24px;
+
+            opacity: 0;
+
+            animation:
+                secondTextAppear 1.2s ease forwards;
+
+            animation-delay: 2s;
+
+            animation-play-state: paused;
+        }
+
+
+        .percentage {
+            font-family: "Amiri", serif;
+
+            font-size: 30px;
+
+            color: #6f5745;
+
+            direction: ltr;
+
+            display: inline-block;
+
+            margin-right: 8px;
+        }
+
+
+        .future-message {
+            font-family: "Aref Ruqaa", serif;
+
+            font-size: 30px;
+
+            line-height: 2;
+
+            color: #6f5745;
+
+            margin-top: 55px;
+
+            opacity: 0;
+
+            animation:
+                secondTextAppear 1.2s ease forwards;
+
+            animation-delay: 2.5s;
+
+            animation-play-state: paused;
+        }
+
+
+        /* صورة المهندس */
+
+        .engineer-image {
+            position: absolute;
+
+            left: 450px;
+
+            bottom: 0;
+
+            width: 400px;
+
+            max-width: 35vw;
+
+            opacity: 0;
+
+            transform:
+                translate(-90px, 90px);
+
+            animation:
+                engineerAppear 1.8s ease forwards;
+
+            animation-delay: 0.4s;
+
+            animation-play-state: paused;
+        }
+
+
+        .engineer-image img {
+            display: block;
+
+            width: 100%;
+
+            height: auto;
+
+            object-fit: contain;
+        }
+
+
+        /* ظهور الصفحة الثانية */
+
+        .page-two.show .cap-image {
+            animation:
+                capAppear 1.2s ease forwards;
+
+            animation-delay: 0.2s;
+        }
+
+
+        .page-two.show .praise,
+        .page-two.show .graduation-text,
+        .page-two.show .graduate-name,
+        .page-two.show .school-info,
+        .page-two.show .future-message,
+        .page-two.show .engineer-image {
+            animation-play-state: running;
+        }
+
+
+        /* ==================================================
+           الصفحة الثالثة
+        ================================================== */
+
+        .page-three {
+            min-height: 100vh;
+
+            display: none;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            position: relative;
+        }
+
+
+        /* تظهر الصفحة الثالثة فقط بعد الضغط على التفاصيل */
+
+        .page-three.show-content {
+            display: flex;
+        }
+
+
+        .countdown-page {
+            width: 100%;
+
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+            padding: 0 30px;
+
+            transform: translateY(-110px);
+        }
+
+
+        /* يوم المناسبة */
+
+        .page-three .event-day {
+            font-family: "Amiri", serif;
+
+            font-size: 42px;
+
+            color: #1d1d1d;
+
+            margin-bottom: 5px;
+
+            opacity: 0;
+        }
+
+
+        /* التاريخ */
+
+        .page-three .event-date {
+            font-family: "Amiri", serif;
+
+            font-size: 32px;
+
+            color: #1d1d1d;
+
+            direction: ltr;
+
+            margin-bottom: 35px;
+
+            opacity: 0;
+        }
+
+
+        /* ==========================================
+           العد التنازلي
+        ========================================== */
+
+        .page-three .countdown {
+            display: flex;
+
+            direction: ltr;
+
+            justify-content: center;
+
+            align-items: flex-start;
+
+            gap: 65px;
+
+            margin-bottom: 55px;
+
+            opacity: 0;
+        }
+
+
+        .page-three .countdown-item {
+            min-width: 100px;
+
+            text-align: center;
+        }
+
+
+        .page-three .countdown-number {
+            font-family: "Amiri", serif;
+
+            font-size: 68px;
+
+            font-weight: 400;
+
+            line-height: 1;
+
+            color: #101b45;
+        }
+
+
+        .page-three .countdown-label {
+            font-family: Arial, sans-serif;
+
+            font-size: 14px;
+
+            color: #222;
+
+            margin-top: 10px;
+
+            letter-spacing: 0.5px;
+        }
+
+
+        /* ==========================================
+           معلومات المناسبة
+           
+           الوقت والتاريخ في الصف الأول
+           الموقع في الصف الثاني
+        ========================================== */
+
+        .event-info {
+            width: 100%;
+
+            max-width: 650px;
+
+            margin: 45px auto 0;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            grid-template-rows: auto auto;
+
+            justify-items: center;
+
+            align-items: start;
+
+            text-align: center;
+
+            direction: ltr;
+
+            opacity: 0;
+        }
+
+
+        /* الوقت */
+
+        .event-info-item.time {
+            grid-column: 1;
+
+            grid-row: 1;
+        }
+
+
+        /* التاريخ */
+
+        .event-info-item.date {
+            grid-column: 2;
+
+            grid-row: 1;
+        }
+
+
+        /* الموقع تحت الاثنين */
+
+        .event-info-item.location {
+            grid-column: 1 / 3;
+
+            grid-row: 2;
+
+            margin-top: 30px;
+        }
+
+
+        /* كل عنصر */
+
+        .event-info-item {
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: flex-start;
+
+            text-align: center;
+        }
+
+
+        /* الأيقونات */
+
+        .info-icon {
+            font-size: 38px;
+
+            line-height: 1;
+
+            margin-bottom: 10px;
+        }
+
+
+        /* النص */
+
+        .info-text {
+            font-family: "Amiri", serif;
+
+            font-size: 24px;
+
+            color: #222;
+
+            line-height: 1.7;
+
+            text-align: center;
+        }
+
+
+        .info-text span {
+            display: block;
+        }
+
+
+        /* ==========================================
+           زر التفاصيل
+        ========================================== */
+
+        .details-button {
+    margin-top: 30px;
+    text-align: center;
+
+    opacity: 0;
+
+    animation: secondTextAppear 1.2s ease forwards;
+    animation-delay: 3.7s;
+
+    animation-play-state: paused;
+}
+
+.page-two.show .details-button {
+    animation-play-state: running;
+}
+
+
+        .details-button a {
+            display: inline-block;
+
+            font-family: "Aref Ruqaa", serif;
+
+            font-size: 20px;
+
+            color: #6f5745;
+
+            text-decoration: none;
+
+            border: 1px solid #b49a7a;
+
+            border-radius: 30px;
+
+            padding: 4px 28px 7px;
+
+            background: rgba(255, 252, 247, 0.35);
+
+            transition: 0.3s ease;
+
+            cursor: pointer;
+        }
+
+
+        .details-button a:hover {
+            transform: translateY(-2px);
+
+            background: rgba(180, 154, 122, 0.15);
+        }
+
+
+        /* ==========================================
+           صورة موقع الكلية - آخر الصفحة جهة اليمين
+        ========================================== */
+
+        .college-map {
+            position: absolute;
+
+            right: 70;
+
+            bottom: 35px;
+
+            text-align: center;
+
+            z-index: 5;
+
+            opacity: 0;
+        }
+
+
+        .college-map a {
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            text-decoration: none;
+        }
+
+
+        .college-map img {
+            width: 250px;
+
+            height: auto;
+
+            display: block;
+
+            cursor: pointer;
+
+            transition: transform 0.3s ease;
+        }
+
+
+        .college-map img:hover {
+            transform: scale(1.05);
+        }
+
+
+        .college-map-title {
+            font-family: "Amiri", serif;
+
+            font-size: 22px;
+
+            color: #222;
+
+            margin-top: 8px;
+
+            white-space: nowrap;
+        }
+
+.map-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 25px 8px;
+
+    font-family: "Aref Ruqaa", serif;
+    font-size: 19px;
+    color: #6f5745;
+
+    border: 1px solid #b49a7a;
+    border-radius: 30px;
+
+    background: rgba(255, 252, 247, 0.35);
+
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.map-button:hover {
+    background: rgba(180, 154, 122, 0.15);
+    transform: translateY(-2px);
+}
+
+        /* ==========================================
+           ظهور الصفحة الثالثة تدريجياً
+        ========================================== */
+
+        .page-three.show-content .event-day {
+            animation:
+                pageThreeFadeUp 1s ease forwards;
+
+            animation-delay: 0.2s;
+        }
+
+
+        .page-three.show-content .event-date {
+            animation:
+                pageThreeFadeUp 1s ease forwards;
+
+            animation-delay: 0.6s;
+        }
+
+
+        .page-three.show-content .countdown {
+            animation:
+                pageThreeFadeUp 1s ease forwards;
+
+            animation-delay: 1s;
+        }
+
+
+        .page-three.show-content .event-info {
+            animation:
+                pageThreeFadeUp 1s ease forwards;
+
+            animation-delay: 1.5s;
+        }
+
+
+        .page-three.show-content .college-map {
+            animation:
+                pageThreeFadeUp 1s ease forwards;
+
+            animation-delay: 2s;
+        }
+
+
+        @keyframes pageThreeFadeUp {
+
+            0% {
+                opacity: 0;
+
+                transform:
+                    translateY(25px);
+            }
+
+
+            100% {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+        /* ==========================================
+           الحركات
+        ========================================== */
+
+        @keyframes ayahAppear {
+
+            0% {
+                opacity: 0;
+
+                transform:
+                    translateY(-18px)
+                    scale(0.97);
+            }
+
+            100% {
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+
+        }
+
+
+        @keyframes textAppear {
+
+            0% {
+                opacity: 0;
+
+                transform:
+                    translateY(18px);
+            }
+
+            100% {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+        @keyframes nameAppear {
+
+            0% {
+                opacity: 0;
+
+                transform:
+                    translateY(22px)
+                    scale(0.96);
+            }
+
+            100% {
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+
+        }
+
+
+        @keyframes decorationAppear {
+
+            0% {
+                opacity: 0;
+
+                transform:
+                    translateY(10px);
+            }
+
+            100% {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+        @keyframes lineAppear {
+
+            0% {
+                transform:
+                    scaleX(0);
+            }
+
+            100% {
+                transform:
+                    scaleX(1);
+            }
+
+        }
+
+
+        @keyframes buttonAppear {
+
+            0% {
+                opacity: 0;
+
+                transform:
+                    translateY(15px);
+            }
+
+            100% {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+        @keyframes bottomAppear {
+
+            0% {
+                opacity: 0;
+
+                transform:
+                    translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+        @keyframes secondTextAppear {
+
+            0% {
+                opacity: 0;
+
+                transform:
+                    translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+        @keyframes graduateNameAppear {
+
+            0% {
+                opacity: 0;
+
+                transform:
+                    translateY(25px)
+                    scale(0.95);
+            }
+
+            100% {
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+
+        }
+
+
+        @keyframes engineerAppear {
+
+            0% {
+                opacity: 0;
+
+                transform:
+                    translate(-90px, 90px);
+            }
+
+            100% {
+                opacity: 1;
+
+                transform:
+                    translate(0, 0);
+            }
+
+        }
+
+
+        @keyframes capAppear {
+
+            0% {
+                opacity: 0;
+
+                transform:
+                    translateX(-50%)
+                    translateY(-20px);
+            }
+
+            100% {
+                opacity: 1;
+
+                transform:
+                    translateX(-50%)
+                    translateY(0);
+            }
+
+        }
+
+
+        /* ==========================================
+           الموبايل
+        ========================================== */
+
+        @media (max-width: 600px) {
+
+            /* الصفحة الأولى */
+
+            .content {
+                max-width: 500px;
+
+                padding:
+                    25px 15px 35px;
+            }
+
+
+            .ayah {
+                font-size: 23px;
+
+                line-height: 1.9;
+
+                padding: 0 5px;
+            }
+
+
+            .ayah-line {
+                width: 140px;
+
+                margin-top: 5px;
+            }
+
+
+            .attendance {
+                font-size: 22px;
+
+                margin-top: 41px;
+
+                margin-bottom: 13px;
+            }
+
+
+            .official {
+                font-size: 19px;
+            }
+
+
+            .name {
+                font-size: 31px;
+
+                line-height: 1.4;
+
+                padding: 0 5px;
+            }
+
+
+            .name-decoration {
+                gap: 20px;
+
+                margin-top: 10px;
+            }
+
+
+            .name-decoration span {
+                font-size: 11px;
+            }
+
+
+            .click-button {
+                margin-top: 17px;
+            }
+
+
+            .click-button a {
+                font-size: 17px;
+
+                padding:
+                    2px 20px 4px;
+            }
+
+
+            .bottom-message {
+                font-size: 20px;
+
+                line-height: 1.8;
+
+                margin-top: 30px;
+
+                padding: 0 10px;
+            }
+
+
+            /* الصفحة الثانية */
+
+            .cap-image {
+                width: 130px;
+
+                max-width: 40vw;
+
+                top: 25px;
+            }
+
+
+            .second-page-text {
+                top: 90px;
+
+                width: 94%;
+
+                max-width: 500px;
+            }
+
+
+            .praise {
+                font-size: 20px;
+
+                line-height: 1.9;
+
+                margin-bottom: 22px;
+            }
+
+
+            .graduation-text {
+                font-size: 21px;
+
+                margin-bottom: 18px;
+            }
+
+
+            .graduate-name {
+                font-size: 46px;
+
+                margin-bottom: 20px;
+            }
+
+
+            .school-info {
+                font-size: 20px;
+
+                line-height: 1.9;
+
+                margin-bottom: 12px;
+            }
+
+
+            .percentage {
+                font-size: 21px;
+            }
+
+
+            .future-message {
+                font-size: 21px;
+
+                line-height: 1.9;
+
+                margin-top: 12px;
+            }
+
+
+            .engineer-image {
+                width: 190px;
+
+                max-width: 45vw;
+
+                left: 0;
+
+                bottom: 0;
+            }
+
+
+            /* الصفحة الثالثة */
+
+            .countdown-page {
+                padding:
+                    30px 10px;
+            }
+
+
+            .page-three .event-day {
+                font-size: 32px;
+            }
+
+
+            .page-three .event-date {
+                font-size: 26px;
+
+                margin-bottom: 25px;
+            }
+
+
+            .page-three .countdown {
+                gap: 12px;
+
+                margin-bottom: 35px;
+            }
+
+
+            .page-three .countdown-item {
+                min-width: 60px;
+            }
+
+
+            .page-three .countdown-number {
+                font-size: 40px;
+            }
+
+
+            .page-three .countdown-label {
+                font-size: 9px;
+            }
+
+
+            /* معلومات المناسبة */
+
+            .event-info {
+                width: 100%;
+
+                max-width: 100%;
+
+                margin-top: 30px;
+            }
+
+
+            .event-info-item.location {
+                margin-top: 25px;
+            }
+
+
+            .info-icon {
+                font-size: 30px;
+
+                margin-bottom: 7px;
+            }
+
+
+            .info-text {
+                font-size: 17px;
+
+                line-height: 1.5;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     الخلفية
+========================================== -->
+
+<div class="background"></div>
+
+
+
+<!-- ==================================================
+     الصفحة الأولى
+================================================== -->
+
+<section class="page page-one" id="page-one">
+
+
+    <div class="content">
+
+
+        <div class="ayah">
+
+            ﴿ رَبِّ أَوْزِعْنِي أَنْ أَشْكُرَ نِعْمَتَكَ
+            الَّتِي أَنْعَمْتَ عَلَيَّ وَعَلَىٰ وَالِدَيَّ ﴾
+
+        </div>
+
+
+        <div class="ayah-line"></div>
+
+
+        <div class="attendance">
+
+            ادعوكم لمشاركة فرحة تخرجي
+
+        </div>
+
+
+        <div class="official">
+
+            رسمياً
+
+        </div>
+
+
+        <div class="name">
+
+            المهندس عبدالمهيمن أحمد حسن
+
+        </div>
+
+
+        <div class="name-decoration">
+
+            <span>✦</span>
+
+            <span>✦</span>
+
+            <span>✦</span>
+
+        </div>
+
+
+        <div class="click-button">
+
+            <a href="#page-two" onclick="showPageTwo()">
+                انقر هنا
+            </a>
+
+        </div>
+
+
+        <div class="bottom-message">
+
+            بحضوركم تكتمل فرحتنا، ننتظركم بكل حب
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     الصفحة الثانية
+================================================== -->
+
+<section class="page page-two" id="page-two">
+
+
+    <div class="page-two-content">
+
+
+        <!-- صورة القبعة -->
+
+        <div class="cap-image">
+
+            <img
+                src="photo_2026-11-07_15-51-32-removebg-preview.png"
+                alt="قبعة التخرج"
+            >
+
+        </div>
+
+
+
+        <!-- نص الصفحة الثانية -->
+
+        <div class="second-page-text">
+
+
+            <div class="praise">
+
+                الحمدلله ما ختم جهد ولا تم سعى إلا بفضله<br>
+
+            </div>
+
+
+            <div class="graduation-text">
+
+                تم بفضل الله
+
+            </div>
+
+
+            <div class="graduate-name">
+
+                تخرجي
+
+            </div>
+
+
+            <div class="school-info">
+
+                من كلية الهندسة - جامعة طرابلس
+
+                <br>
+
+                - بدرجة البكالوريوس -
+
+                <br>
+
+                <span class="percentage">
+                    في تخصص الهندسة المدنية
+                </span>
+
+            </div>
+
+
+            <div class="future-message">
+
+                اللهم اجعلها بداية
+
+                <br>
+
+                خير لمستقبلي
+
+            </div>
+
+
+            <!-- التفاصيل آخر شيء في الصفحة الثانية -->
+
+            <div class="details-button">
+
+                <a href="#page-three" onclick="showPageThree(event)">
+                    التفاصيل
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- صورة المهندس -->
+
+        <div class="engineer-image">
+
+            <img
+                src="Smiling_Safety_Professional_Outdoors-removebg-preview.png"
+                alt="صورة المهندس"
+            >
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     الصفحة الثالثة
+================================================== -->
+
+<section class="page page-three" id="page-three">
+
+
+    <div class="countdown-page">
+
+
+        <!-- يوم المناسبة -->
+
+        <div class="event-day">
+
+            يوم الاثنين
+
+        </div>
+
+
+        <!-- تاريخ المناسبة -->
+
+        <div class="event-date">
+
+          
+
+        </div>
+
+
+
+        <!-- ==========================================
+             العد التنازلي
+        ========================================== -->
+
+        <div class="countdown">
+
+
+            <div class="countdown-item">
+
+                <div
+                    class="countdown-number"
+                    id="days"
+                >
+                    00
+                </div>
+
+                <div class="countdown-label">
+
+                    DAYS
+
+                </div>
+
+            </div>
+
+
+
+            <div class="countdown-item">
+
+                <div
+                    class="countdown-number"
+                    id="hours"
+                >
+                    00
+                </div>
+
+                <div class="countdown-label">
+
+                    HOURS
+
+                </div>
+
+            </div>
+
+
+
+            <div class="countdown-item">
+
+                <div
+                    class="countdown-number"
+                    id="minutes"
+                >
+                    00
+                </div>
+
+                <div class="countdown-label">
+
+                    MINUTES
+
+                </div>
+
+            </div>
+
+
+
+            <div class="countdown-item">
+
+                <div
+                    class="countdown-number"
+                    id="seconds"
+                >
+                    00
+                </div>
+
+                <div class="countdown-label">
+
+                    SECONDS
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ==========================================
+             معلومات المناسبة
+        ========================================== -->
+
+        <div class="event-info">
+
+
+            <!-- الوقت -->
+
+            <div class="event-info-item time">
+
+                <div class="info-icon">
+                    🕘
+                </div>
+
+                <div class="info-text">
+
+                    2:30 مساءً
+
+                </div>
+
+            </div>
+
+
+
+            <!-- التاريخ -->
+
+            <div class="event-info-item date">
+
+                <div class="info-icon">
+                     ▦
+                </div>
+
+                <div class="info-text">
+
+                    <span>
+                        2026.11.16
+                    </span>
+
+                    <span>
+                    
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- الموقع -->
+
+            <div class="event-info-item location">
+
+                <div class="info-icon">
+                    📍
+                </div>
+
+                <div class="info-text">
+
+                    كلية الهندسة - جامعة طرابلس
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- صورة موقع الكلية -->
+
+    <div class="college-map">
+
+        <a
+            href="https://www.google.com/maps/search/?api=1&query=كلية الهندسة جامعة طرابلس"
+            target="_blank"
+        >
+
+            <img
+                src="photo_2026-11-01_16-12-51-removebg-preview.png"
+                alt="موقع الكلية"
+            >
+
+                <div class="map-button">
+    موقع الكلية
+</div>
+        </a>
+
+    </div>
+
+
+</section>
+
+
+
+<script>
+
+
+    /* ==========================================
+       إظهار الصفحة الثانية
+    ========================================== */
+
+    function showPageTwo() {
+
+        const pageTwo =
+            document.getElementById("page-two");
+
+
+        pageTwo.classList.add("show");
+
+
+        setTimeout(function () {
+
+            pageTwo.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }, 100);
+
+    }
+
+
+
+    /* ==========================================
+       إظهار الصفحة الثالثة عند الضغط على التفاصيل
+    ========================================== */
+
+    function showPageThree(event) {
+
+        event.preventDefault();
+
+
+        const pageThree =
+            document.getElementById("page-three");
+
+
+        /* إظهار الصفحة الثالثة */
+
+        pageThree.classList.add("show-content");
+
+
+        /* الانتقال إليها بعد إظهارها */
+
+        setTimeout(function () {
+
+            pageThree.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }, 100);
+
+    }
+
+
+
+    /* ==========================================
+       العد التنازلي
+    ========================================== */
+
+    const targetDate =
+        new Date("2026-11-16T09:00:00").getTime();
+
+
+
+    function updateCountdown() {
+
+        const now =
+            new Date().getTime();
+
+
+        const difference =
+            targetDate - now;
+
+
+
+        if (difference <= 0) {
+
+            document.getElementById("days").textContent =
+                "00";
+
+            document.getElementById("hours").textContent =
+                "00";
+
+            document.getElementById("minutes").textContent =
+                "00";
+
+            document.getElementById("seconds").textContent =
+                "00";
+
+            return;
+
+        }
+
+
+
+        const days =
+            Math.floor(
+                difference /
+                (1000 * 60 * 60 * 24)
+            );
+
+
+        const hours =
+            Math.floor(
+                (difference %
+                    (1000 * 60 * 60 * 24)) /
+                (1000 * 60 * 60)
+            );
+
+
+        const minutes =
+            Math.floor(
+                (difference %
+                    (1000 * 60 * 60)) /
+                (1000 * 60)
+            );
+
+
+        const seconds =
+            Math.floor(
+                (difference %
+                    (1000 * 60)) /
+                1000
+            );
+
+
+
+        document.getElementById("days").textContent =
+            String(days).padStart(2, "0");
+
+
+        document.getElementById("hours").textContent =
+            String(hours).padStart(2, "0");
+
+
+        document.getElementById("minutes").textContent =
+            String(minutes).padStart(2, "0");
+
+
+        document.getElementById("seconds").textContent =
+            String(seconds).padStart(2, "0");
+
+    }
+
+
+
+    updateCountdown();
+
+
+    setInterval(
+        updateCountdown,
+        1000
+    );
+
+</script>
+
+
+</body>
+
+</html>
